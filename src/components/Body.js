@@ -39,7 +39,7 @@ export const Body = ()=>{
             <button onClick={()=>{
                 console.log(restaurants_filter);
                 setList(
-                    restaurants_filter.filter((res)=>res.avgRating>4)
+                    restaurants_filter.filter((res)=>res.info.avgRating>4)
                 )
             }}><h1>Top rated restaurants</h1></button>
 
