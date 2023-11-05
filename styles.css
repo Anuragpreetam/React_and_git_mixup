@@ -27,9 +27,9 @@ button{
     margin: 2rem;
 }
 
-button:hover{
+/* button:hover{
     font-size: 4rem;
-}
+} */
 
 ul>li{
   list-style: none;
