@@ -3,6 +3,7 @@ import  Cards  from "./Cards";
 import swiggyData from "../utils/mockData";
 import { useState } from "react";
 import { useEffect } from "react";
+import Sui from "./Sui";
 
 //whenever a state variable for a component changes, react, re-renders the component
 
@@ -22,16 +23,29 @@ export const Body = ()=>{
      //I integrated my own API of swiggys data
       var swiggyApi = "https://gregarious-babka-a10115.netlify.app//.netlify/functions/api/restaurants"
         const fetchData = async ()=>{
+            try{
             const apiData = await fetch(swiggyApi) //since fetch is asynchronous, you can either use 'await' or 'then' to handle it
             const json = await apiData.json();
             console.log(json);
             // setList(json?.data.cards[4].card.card.info);
             setList(json); 
-            setFullList(json);//The optional chaining (?.) operator accesses an object's property or calls a function.
+            setFullList(json);
+            }
+            catch(err){
+                console.log("Here's the error",err)
+            }//The optional chaining (?.) operator accesses an object's property or calls a function.
             // If the object accessed or function called using this operator is undefined or null, 
             //the expression short circuits and evaluates to undefined instead of throwing an error.
         }
-
+        //shimmerUi is rendered till the data is fetched from api and ready
+         if(restaurants_filter.length == 0){
+            return(
+                <div>
+                    <Sui/>
+                </div>
+            )
+         }
+         else{
     return(
         <div className="mainbody">
             <Heading style={{display:"block"}}/>
@@ -43,14 +57,14 @@ export const Body = ()=>{
                 setList(
                     restaurants_filter.filter((res)=>res.info.avgRating>4)
                 )
-            }}><h1>Top rated restaurants</h1></button>
+            }} type="button"><h3>Top rated restaurants</h3></button>
 
             {/* Clear filter */}
              <button onClick={()=>{
                 setList(
                     full_list
                 )
-            }}><h1>Clear Filter</h1></button>
+            }} type="button"><h3>Clear Filter</h3></button>
 
             <div className="all-cards-container">
             
@@ -62,8 +76,8 @@ export const Body = ()=>{
                 )}
             </div>
         </div>
-     
     )
+    }
 }
 
 export default Body;
