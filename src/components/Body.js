@@ -10,6 +10,7 @@ export const Body = ()=>{
 
    
     var[restaurants_filter,setList] = useState([]);
+    var[full_list,setFullList] = useState([])
       //get value from API
      //useEffect is executed after the component is rendered
      useEffect(()=>{
@@ -25,7 +26,8 @@ export const Body = ()=>{
             const json = await apiData.json();
             console.log(json);
             // setList(json?.data.cards[4].card.card.info);
-            setList(json); //The optional chaining (?.) operator accesses an object's property or calls a function.
+            setList(json); 
+            setFullList(json);//The optional chaining (?.) operator accesses an object's property or calls a function.
             // If the object accessed or function called using this operator is undefined or null, 
             //the expression short circuits and evaluates to undefined instead of throwing an error.
         }
@@ -46,7 +48,7 @@ export const Body = ()=>{
             {/* Clear filter */}
              <button onClick={()=>{
                 setList(
-                    restaurants_filter = swiggyData
+                    full_list
                 )
             }}><h1>Clear Filter</h1></button>
 
