@@ -11,7 +11,7 @@ const Cards = (props)=>{
             <h1>{name}</h1>
             
             <ul>
-                <li style={{fontStyle:"oblique"}}><h2>cuisines</h2></li>
+                <li style={{fontStyle:"oblique"}}><h2>cuisines:</h2></li>
                {cuisines.map((each_cuisine)=>{return <li key={dummyKey = dummyKey -1}><h2>{each_cuisine}</h2></li>})}
             </ul>
             <h1>Rating : {avgRating}</h1>

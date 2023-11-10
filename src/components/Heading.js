@@ -1,7 +1,7 @@
 const Heading = ()=>{
     return(
         <div>
-            <h1 style={{fontSize:"10rem"}}>
+            <h1 style={{}}>
                 Swiggy Clone
             </h1>
         </div>
