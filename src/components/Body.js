@@ -37,6 +37,7 @@ export const Body = ()=>{
             // If the object accessed or function called using this operator is undefined or null, 
             //the expression short circuits and evaluates to undefined instead of throwing an error.
         }
+        //shimmerUi is rendered till the data is fetched from api and ready
          if(restaurants_filter.length == 0){
             return(
                 <div>
