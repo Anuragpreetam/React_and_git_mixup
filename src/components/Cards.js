@@ -6,7 +6,7 @@ const Cards = (props)=>{
     // console.log(typeof dummyKey)
     return(
         <div className="cards-component">
-            <img style={{height:"200px",width:"250px"}} src={url+cloudinaryImageId}></img>
+            <img style={{height:"200px",width:"400px"}} src={url+cloudinaryImageId}></img>
             {/* <h1>{id}</h1>  */}
             <h1>{name}</h1>
             

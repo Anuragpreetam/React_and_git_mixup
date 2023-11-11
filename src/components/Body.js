@@ -38,7 +38,8 @@ export const Body = ()=>{
             //the expression short circuits and evaluates to undefined instead of throwing an error.
         }
         //shimmerUi is rendered till the data is fetched from api and ready
-         if(restaurants_filter.length == 0){
+         if(!restaurants_filter.length){
+            console.log("shimmerUI triggered")
             return(
                 <div>
                     <Sui/>
@@ -46,7 +47,8 @@ export const Body = ()=>{
             )
          }
          else{
-    return(
+            console.log("shimmerUI not triggered")
+        return(
         <div className="mainbody">
             <Heading style={{display:"block"}}/>
 
