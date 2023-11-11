@@ -21,7 +21,8 @@ export const Body = ()=>{
 
      //We'd like to use the actual swiggy api rather than hardcoded data, we do so by following
      //I integrated my own API of swiggys data
-      var swiggyApi = "https://gregarious-babka-a10115.netlify.app//.netlify/functions/api/restaurants"
+    //   var swiggyApi = "https://gregarious-babka-a10115.netlify.app//.netlify/functions/api/restaurants"
+    var swiggyApi = "https://anurag-react-swiggyapi.netlify.app//.netlify/functions/api/restaurants"
         const fetchData = async ()=>{
             try{
             const apiData = await fetch(swiggyApi) //since fetch is asynchronous, you can either use 'await' or 'then' to handle it
