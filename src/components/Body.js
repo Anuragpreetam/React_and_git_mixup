@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import Sui from "./Sui";
 import Search from "./Search";
+import {Dropdown} from "semantic-ui-react"
 //whenever a state variable for a component changes, react, re-renders the component
 
 export const Body = ()=>{
@@ -15,6 +16,7 @@ export const Body = ()=>{
     var[searchItem,setSearchItem] = useState("") //search 
       //get value from API
      //useEffect is executed after the component is rendered
+      
      useEffect(()=>{
         console.log("UseEffect called after component has rendered")
         fetchData();
@@ -40,6 +42,7 @@ export const Body = ()=>{
             // If the object accessed or function called using this operator is undefined or null, 
             //the expression short circuits and evaluates to undefined instead of throwing an error.
         }
+
 
         //shimmerUi is rendered till the data is fetched from api and ready
          if(restaurants_filter.length == 0){
