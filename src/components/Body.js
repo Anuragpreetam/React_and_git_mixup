@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import Sui from "./Sui";
 import Search from "./Search";
-import {Dropdown} from "semantic-ui-react"
+import {Dropdown, FeedLabel} from "semantic-ui-react"
 //whenever a state variable for a component changes, react, re-renders the component
 
 export const Body = ()=>{
@@ -17,10 +17,24 @@ export const Body = ()=>{
       //get value from API
      //useEffect is executed after the component is rendered
       
+     //empty dependent variable
      useEffect(()=>{
         console.log("UseEffect called after component has rendered")
         fetchData();
      },[])
+
+     //no dependent variable, run it and see console, it is madness
+    /* useEffect(()=>{
+         console.log("UseEffect called after component has rendered")
+        fetchData();
+     })
+     */
+
+      /* useEffect(()=>{
+         console.log("UseEffect called after component has rendered")
+        fetchData();
+     },[some_state_variable])
+     */
 
      //We'd like to use the actual swiggy api rather than hardcoded data, we do so by following
      //I integrated my own API of swiggys data
@@ -45,11 +59,11 @@ export const Body = ()=>{
 
 
         //shimmerUi is rendered till the data is fetched from api and ready
-         if(!restaurants_filter.length){
-            console.log("shimmerUI triggered")
-            setTimeout(() => {
-                setList(full_list)
-            }, 5);
+         if(restaurants_filter.length == 0){
+            // console.log("shimmerUI triggered")
+            // setTimeout(() => {
+            //     setList(full_list)
+            // }, 1000);
             return(
                 <div>
                     <Sui/>
@@ -80,21 +94,23 @@ export const Body = ()=>{
             />
 
             {/* avgRating>4 filter */}
-            <button onClick={()=>{
-                setList(
-                    restaurants_filter.filter((res)=>res.info.avgRating>4)
-                )
-            }} type="button"><h3>Top rated restaurants</h3></button>
 
-            {/* Clear filter */}
-             <button onClick={()=>{
-                setList(
-                    full_list
-                );
-                // setSearchItem("")
+            <div className="filter-container">
+                <button onClick={()=>{
+                    setList(
+                        restaurants_filter.filter((res)=>res.info.avgRating>4)
+                    )
+                }} type="button" ><h3>Top rated restaurants</h3></button>
+
+                {/* Clear filter */}
+                <button onClick={()=>{
+                    setList(
+                        full_list
+                    );
+                    // setSearchItem("")
                 
-            }} type="button"><h3>Clear Filter</h3></button>
-
+                }} type="button" ><h3>Clear Filter</h3></button>
+            </div>
             <div className="all-cards-container">
             
                 {restaurants_filter.map(
