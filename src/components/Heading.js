@@ -1,4 +1,5 @@
 const Heading = ()=>{
+    console.log("Heading rendered")
     return(
         <div>
             <h1 style={{}}>
