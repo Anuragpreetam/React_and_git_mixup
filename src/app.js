@@ -7,6 +7,7 @@ import Contact from "./components/Contact";
 import Cart from "./components/Cart";
 import Heading from "./components/Heading";
 import Error from "./components/Error";
+import MenuCard from "./components/MenuCard";
 
 const root = document.getElementById('root')
 
@@ -43,6 +44,10 @@ const appRoute = createBrowserRouter([
                     path:"/cart",
                     element:<Cart/>,
                 },
+                {
+                    path : "/restaurants/:id",
+                    element:<MenuCard/>,
+                }
             ]
         }
        

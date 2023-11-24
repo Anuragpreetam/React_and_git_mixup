@@ -1,6 +1,6 @@
 const Cart = ()=>{
     return(
-        <div style={{padding:"12rem"}}>
+        <div className="pages-div">
         <h1>
             You're on cart page
         </h1>
