@@ -5,6 +5,11 @@
     display: flex;
     flex-wrap: wrap;
 } */
+
+.heading-container{
+    background-color: yellow;
+    width: 100%;
+}
 .cards-component{
     padding: 2rem;
     border: 1px solid violet;
@@ -40,6 +45,6 @@ ul > li{
 }
 
 .pages-div{
-    padding:12rem;
+    padding:5rem 12rem 12rem 0rem;
 }
  
