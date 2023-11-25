@@ -1,6 +1,6 @@
 import { useEffect,useState } from "react";
 import menuApi from "../utils/menuApi";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Sui from "./Sui";
 
 const MenuCard = ()=>{
@@ -52,6 +52,12 @@ const MenuCard = ()=>{
                         return <li>{cuisines?.card?.info?.name}</li>
                     })}
                 </ul>
+
+               <Link to="/">
+                <button>
+                    Back
+                </button>
+                </Link>
             </div>
         )
     }
