@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import Sui from "./Sui";
 import Search from "./Search";
-import {Dropdown, FeedLabel} from "semantic-ui-react"
+import { Link } from "react-router-dom";
 //whenever a state variable for a component changes, react, re-renders the component
 
 export const Body = ()=>{
@@ -117,7 +117,12 @@ export const Body = ()=>{
                     (e)=> {
                         // console.log(e.info.id)
                         console.log("cards rendered")
-                        return <Cards key= {e.id} cardData={e.info}/>
+                        console.log(e.info.id)
+                        return (
+                            <Link to={"restaurants/" + e.info.id}>
+                                <Cards key= {e.info.id} cardData={e.info}/>
+                            </Link>
+                        )
                     }
                 )}
             </div>

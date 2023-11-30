@@ -4,7 +4,7 @@ const Error = ()=>{
     const err = useRouteError();
     console.log(err)
     return(
-        <div>
+        <div className="pages-div">
             <h2>Oops!</h2>
             <h2>Something went wrong</h2>
             <h3>{err.status}</h3>
