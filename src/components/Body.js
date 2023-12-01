@@ -74,7 +74,7 @@ export const Body = ()=>{
             console.log("shimmerUI not triggered")
         return(
         <div className="mainbody">
-            <Heading style={{display:"block"}}/>
+            {/* <Heading style={{display:"block"}}/> */}
 
             
             <Search value={searchItem} 
@@ -116,8 +116,8 @@ export const Body = ()=>{
                 {restaurants_filter.map(
                     (e)=> {
                         // console.log(e.info.id)
-                        console.log("cards rendered")
-                        console.log(e.info.id)
+                        // console.log("cards rendered")
+                        // console.log(e.info.id)
                         return (
                             <Link to={"restaurants/" + e.info.id}>
                                 <Cards key= {e.info.id} cardData={e.info}/>
