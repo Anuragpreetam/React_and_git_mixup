@@ -1,7 +1,20 @@
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
+
 
 const Heading = ()=>{
+    
     console.log("Heading rendered")
+    var status = useOnlineStatus();
+
+    //function to provide symbol to show related status
+    const Symbol = ()=>{
+        if(status == "true"){
+            return '✅';
+        }else return '❌';
+    }
+   
+
     return(
         <div className="heading-container" style={{display:"flex",position:"fixed",justifyContent:"space-between",zIndex:"10"}}>
             <div className="heading">
@@ -12,6 +25,9 @@ const Heading = ()=>{
 
             <div className="links">
                 <ul style={{display:"flex"}}>
+                    <li style={{display:"inline",margin:"1rem"}}>
+                       OnLine Status:{Symbol()}
+                    </li>
                     <li style={{display:"inline",margin:"1rem"}}>
                         <Link to="/">Home</Link>
                     </li>
@@ -30,6 +46,8 @@ const Heading = ()=>{
                     <li style={{display:"inline",margin:"1rem"}}>
                         <Link to="/cart">Cart</Link>
                     </li>
+                   
+                  
                 </ul>
             </div>
         </div>

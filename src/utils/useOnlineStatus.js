@@ -1,9 +1,10 @@
 import { useEffect,useState } from "react";
 
-const[status,setStatus] = useState("true")
-const useOnlineStatus = ()=>{
-    useEffect(()=>{
 
+const useOnlineStatus = ()=>{
+    const[status,setStatus] = useState("true")
+    useEffect(()=>{
+        console.log("useOnlineStatus's useeffect called...")
         window.addEventListener("offline",()=>{
             setStatus("false");
         })

@@ -6,6 +6,8 @@ import { useEffect } from "react";
 import Sui from "./Sui";
 import Search from "./Search";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
+
 //whenever a state variable for a component changes, react, re-renders the component
 
 export const Body = ()=>{
@@ -56,7 +58,19 @@ export const Body = ()=>{
             // If the object accessed or function called using this operator is undefined or null, 
             //the expression short circuits and evaluates to undefined instead of throwing an error.
         }
-
+        const onlineStatus = useOnlineStatus();
+        console.log("Your online Status: " +onlineStatus)
+        if(onlineStatus == "false"){
+            console.log("Entering..")
+            return(
+                <div style={{padding:"10rem"}}>
+                       <h1>
+                    Oops! Dinosaur on the way!
+                </h1>
+            
+                </div>
+            )
+        }
 
         //shimmerUi is rendered till the data is fetched from api and ready
          if(restaurants_filter.length == 0){
