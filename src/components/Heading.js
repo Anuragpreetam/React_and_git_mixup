@@ -46,6 +46,9 @@ const Heading = ()=>{
                     <li style={{display:"inline",margin:"1rem"}}>
                         <Link to="/cart">Cart</Link>
                     </li>
+                    <li style={{display:"inline",margin:"1rem"}}>
+                        <Link to="/instamart">Instamart</Link>
+                    </li>
                    
                   
                 </ul>
