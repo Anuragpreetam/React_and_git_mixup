@@ -10,8 +10,12 @@ const Heading = ()=>{
     //function to provide symbol to show related status
     const Symbol = ()=>{
         if(status == "true"){
+            console.log("rendering symbol")
             return '✅';
-        }else return '❌';
+        }else{
+            console.log("rendering symbol")
+            return '❌';
+        } ;
     }
    
 
