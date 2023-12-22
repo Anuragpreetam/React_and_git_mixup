@@ -55,6 +55,7 @@ const appRoute = createBrowserRouter([
                     element:<Cart/>,
                 },
                 {
+                    //lazy-loaded
                     path:"/instamart",
                     element:(
                         <Suspense fallback={<Sui></Sui>}><Instamart/></Suspense>

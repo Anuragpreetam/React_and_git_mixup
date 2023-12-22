@@ -5,13 +5,13 @@ const Cards = (props)=>{
     var dummyKey = Object.keys(props.cardData).length; //just to handle unique key problem in cuisines which uses li
     // console.log(typeof dummyKey)
     return(
-        <div className="cards-component">
-            <img style={{height:"200px",width:"400px"}} src={url+cloudinaryImageId}></img>
+        <div className="m-2 p-2 bg-slate-200 hover:border-2 border-yellow-200 rounded-lg">
+            <img className="w-40 h-40" src={url+cloudinaryImageId}></img>
             {/* <h1>{id}</h1>  */}
             <h1>{name}</h1>
             
             <ul>
-                <li style={{fontStyle:"oblique"}}><h2>cuisines:</h2></li>
+                <li ><h2>cuisines:</h2></li>
                {cuisines.map((each_cuisine)=>{return <li key={dummyKey = dummyKey -1}><h2>{each_cuisine}</h2></li>})}
             </ul>
             <h1>Rating : {avgRating}</h1>

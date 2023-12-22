@@ -16,3 +16,7 @@ Because react was looking for the component already and since it did not find it
 Now to make it work, import {suspense} from react
 Wrap that component in it
 give fallback ie till the component loads give it something to show
+
+
+//Tailwind
+->Press ctrl+space for suggestions

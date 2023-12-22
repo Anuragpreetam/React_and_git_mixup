@@ -109,15 +109,15 @@ export const Body = ()=>{
 
             {/* avgRating>4 filter */}
 
-            <div className="filter-container">
-                <button onClick={()=>{
+            <div className="my-2 flex justify-end">
+                <button className="mx-2 border-2 border-slate-300 rounded-lg p-2 hover:bg-yellow-200" onClick={()=>{
                     setList(
                         restaurants_filter.filter((res)=>res.info.avgRating>4)
                     )
                 }} type="button" ><h3>Top rated restaurants</h3></button>
 
                 {/* Clear filter */}
-                <button onClick={()=>{
+                <button  className="mx-2 border-2 border-slate-300 rounded-lg p-2 hover:bg-yellow-200" onClick={()=>{
                     setList(
                         full_list
                     );
@@ -125,7 +125,8 @@ export const Body = ()=>{
                 
                 }} type="button" ><h3>Clear Filter</h3></button>
             </div>
-            <div className="all-cards-container">
+            <div className="my-6 flex flex-wrap"> {/*  all cards container*/}
+               
             
                 {restaurants_filter.map(
                     (e)=> {
@@ -133,9 +134,11 @@ export const Body = ()=>{
                         // console.log("cards rendered")
                         // console.log(e.info.id)
                         return (
-                            <Link to={"restaurants/" + e.info.id}>
-                                <Cards key= {e.info.id} cardData={e.info}/>
-                            </Link>
+                            
+                                <Link to={"restaurants/" + e.info.id}>
+                                    <Cards key= {e.info.id} cardData={e.info}/>
+                                </Link>
+                            
                         )
                     }
                 )}
