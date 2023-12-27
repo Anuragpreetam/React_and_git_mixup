@@ -1,18 +1,38 @@
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
+
 
 const Heading = ()=>{
+    
     console.log("Heading rendered")
+    var status = useOnlineStatus();
+
+    //function to provide symbol to show related status
+    const Symbol = ()=>{
+        if(status == "true"){
+            console.log("rendering symbol")
+            return '✅';
+        }else{
+            console.log("rendering symbol")
+            return '❌';
+        } ;
+    }
+   
+
     return(
-        <div className="heading-container" style={{display:"flex",position:"fixed",justifyContent:"space-between",zIndex:"10"}}>
-            <div className="heading">
-                <h1 style={{}}>
+        <div className="flex flex-wrap justify-between my-2 bg-indigo-300 py-10">
+            <div>
+                <h1>
                     Swiggy Clone
                 </h1>
             </div>
 
-            <div className="links">
-                <ul style={{display:"flex"}}>
-                    <li style={{display:"inline",margin:"1rem"}}>
+            <div >
+                <ul className="flex flex-wrap" >
+                    <li className="mx-2 p-3 rounded-lg hover:bg-green-200">
+                       OnLine Status:{Symbol()}
+                    </li>
+                    <li className="mx-2 p-3 rounded-lg hover:bg-green-200">
                         <Link to="/">Home</Link>
                     </li>
                     {/* <a href="/">
@@ -21,15 +41,20 @@ const Heading = ()=>{
                         </li>
                     </a> */}
             
-                    <li style={{display:"inline",margin:"1rem"}}>
+                    <li className="mx-2 p-3 rounded-lg hover:bg-green-200">
                         <Link to="/about">About</Link>
                     </li>
-                    <li style={{display:"inline",margin:"1rem"}}>
+                    <li className="mx-2 p-3 rounded-lg hover:bg-green-200">
                         <Link to="/contact">Contact</Link>
                     </li>
-                    <li style={{display:"inline",margin:"1rem"}}>
+                    <li className="mx-2 p-3 rounded-lg hover:bg-green-200">
                         <Link to="/cart">Cart</Link>
                     </li>
+                    <li className="mx-2 p-3 rounded-lg hover:bg-green-200">
+                        <Link to="/instamart">Instamart</Link>
+                    </li>
+                   
+                  
                 </ul>
             </div>
         </div>

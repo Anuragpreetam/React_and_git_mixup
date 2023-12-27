@@ -2,6 +2,7 @@ import { useEffect,useState } from "react";
 import menuApi from "../utils/menuApi";
 import { Link, useParams } from "react-router-dom";
 import Sui from "./Sui";
+import url from "../utils/constants";
 
 const MenuCard = ()=>{
 
@@ -39,25 +40,31 @@ const MenuCard = ()=>{
         var destructuredData_basic = resMenu?.data?.cards[0]?.card?.card?.info;
         var itemCards = resMenu?.data.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards;
         return(
-            <div className="pages-div">
-                <h1>
+            <div className="flex flex-wrap">
+                <div>
+                    <img className="w-60 h-40 m-4" src={url+destructuredData_basic.cloudinaryImageId}>
+                    </img>
+                    <h1 className="font-bold">
                     {destructuredData_basic.name}
-                </h1>
-
-                <h3>
+                    </h1>
+                    <br></br>
+                    <h3 className="font-semibold">
                     Menu
-                </h3>
-                <ul>
+                    </h3>
+                    <ul className="p-2">
                     {itemCards.map((cuisines)=>{
-                        return <li>{cuisines?.card?.info?.name}</li>
+                        return <li>{"*"} {cuisines?.card?.info?.name}</li>
                     })}
-                </ul>
+                    </ul>
 
-               <Link to="/">
-                <button>
-                    Back
-                </button>
-                </Link>
+                    <div className="mx-5">
+                        <Link to="/">
+                            <button className="mx-2 border-2 border-slate-300 rounded-lg p-2 hover:bg-yellow-200">
+                            Back
+                            </button>
+                        </Link>
+                    </div>
+                </div>
             </div>
         )
     }
